@@ -1,0 +1,78 @@
+---
+title: "SCC ICA1"
+author: "Team Uno"
+date: "1/28/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(tidyverse)
+bank <- read.csv("bank.csv")
+glimpse(bank)
+```
+
+```{r run regression, include=FALSE}
+regression <- scatter.smooth(x=bank$balance, y=bank$age, main="Age ~ Balance")
+print(regression)
+```
+
+```{r, include=FALSE}
+sumplot <- lm(bank$balance ~ bank$age + bank$job + bank$marital + bank$education, data=bank)
+summary(sumplot)$coefficient
+```
+```{r F-test by var test, include=FALSE}
+
+agetest <- var.test(bank$balance,bank$age, data = bank)
+jobtest <- var.test(bank$balance,bank$job, data = bank)
+lovetest <- var.test(bank$balance,bank$marital, data = bank)
+educationtest <- var.test(bank$balance,bank$education, data = bank)
+housingtest <- var.test(bank$balance,bank$housing, data = bank)
+loantest <- var.test(bank$balance,bank$loan, data = bank)
+daytest <- var.test(bank$balance,bank$day, data = bank)
+monthtest <- var.test(bank$balance,bank$month, data = bank)
+durationtest <- var.test(bank$balance,bank$duration, data = bank)
+cammpaigntest <- var.test(bank$balance,bank$campaign, data = bank)
+ytest <- var.test(bank$balance,bank$y, data = bank)
+
+# print individual vectors to get the F test
+```
+
+```{r, f test by anova, include=FALSE}
+null_bank_model = lm(balance ~ 1, data = bank)
+full_bank_model = lm(balance ~ age + job + marital + education + default + housing + loan + contact + day + month + duration + campaign + previous, data = bank)
+
+full_bank_model = lm(balance ~ age + marital, data = bank)
+anova(null_bank_model, full_bank_model)
+```
+
+
+```{r, include=FALSE}
+ggplot(bank,aes(y=balance,x=age,color=marital))+geom_point()+stat_smooth(method="lm",se=FALSE)
+```
+
+```{r, include=FALSE}
+ggplot(bank,aes(y=balance,x=day,color=marital))+geom_point()+stat_smooth(method="lm",se=FALSE)
+```
+
+
+```{r, include=FALSE}
+ggplot(bank,aes(y=balance,x=duration,color=marital))+geom_point()+stat_smooth(method="lm",se=FALSE)
+```
+
+```{r, include=FALSE}
+ggplot(bank,aes(y=balance,x=campaign,color=marital))+geom_point()+stat_smooth(method="lm",se=FALSE)
+
+```
+```{r, include=FALSE}
+ggplot(bank,aes(y=balance,x=previous,color=marital))+geom_point()+stat_smooth(method="lm",se=FALSE)
+```
+
+# Conclusion
+
+*The final model is a representation of the dataset bank. It excludes the y, month, loan, housing, education, job variables due to the F-test.These variables don't aid in our regression model. If the p-value of the variance test is over 0.05 then it is not significant. The variances of x and y are hypothetically equal. The above presesents a multiple linear regression that predicts the variable balance, keeping martial status as the color and only constant variable. For the most part, our regression inputs a weak positive correlation. Almost flatline correlation. *
+
+# References:
+1. https://cran.r-project.org/web/packages/ggiraphExtra/vignettes/ggPredict.html
+2. http://www.sthda.com/english/wiki/f-test-compare-two-variances-in-r
+3. The best notes ever by Professor Bushong (:
