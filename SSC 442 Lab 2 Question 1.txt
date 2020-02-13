@@ -1,0 +1,135 @@
+The included variables and their descriptions are below. Finding information about the values they take, the code table(sign(Ames$column)) was utilized.
+
+ID:
+- Individual house identification number
+- Takes values starting from 1 (no negatives)
+MSSubClass:
+- Indicates the type of house at the time of the sale
+LotFrontage:
+- Indicates the amount of lot/street that is on the property
+- Values are in feet 
+- No negative values 
+LotArea:
+- Indicates the size of the lot area
+- Values are in square feet
+- Positive values only
+OverallQual:
+- Gives a rating to the overall quality of the house 
+- Positive values only
+OverallCond:
+- Gives a rating to the overall condition of the house
+YearBuilt:
+- Indicates when the house was originally built
+- Values should be on a range up until the data was collected, say 2020
+- Positive values only
+YearRemodAdd:
+- Indicates when the house was remodeled, if ever
+- Values should be on a range up until the data was collected, say 2020
+- Positive values only
+MasVnrArea:
+- Indicates the type of “Masonry Veneer”
+- Values could be zero or positive
+BsmtFinSF1:
+- Indicates the size of the Type 1 basement finished area
+- Values are in square feet
+- Values could be zero or positive
+BsmtFinF2:
+- Indicates the size of the Type 2 basement finished area
+- Values are in square feet
+- Values could be zero or positive
+BsmtUnfSF:
+- Indicates the amount of unfinished basement area
+- Values are in square feet
+- Values could be zero or positive
+TotalBsmtSF:
+- Indicates the total amount of basement area
+- Values are in square feet
+- Values could be zero or positive
+X1stFlrSF:
+- Indicates the size of the first floor
+- Values are in square feet
+- Values are positive only
+X2ndFlrSF:
+- Indicates the size of the second floor
+- Values are in square feet
+- Values could be zero or positive
+LowQualFinSF:
+- Indicates the amount of low quality finished square feet in the whole house
+- Values are in square feet
+- Values could be zero or positive
+GrLivArea:
+- Indicates the size of the (grand) living area
+- Values are in square feet
+- Values are positive only
+BsmtFullBath:
+- Indicates the amount of basement full baths (shower/bath, sink, and toilet)
+- Values could be zero or positive
+BsmtHalfBath:
+- Indicates the amount of basement half baths (toilet and sink)
+- Values could be zero or positive
+FullBath:
+- Indicates the amount of full baths not in the basement
+- Values could be zero or positive
+HalfBath:
+- Indicates the amount of half baths not in the basement
+- Values could be zero or positive
+BedroomAbvGr:
+- Indicates the amount of bedrooms above grade (ground)
+- Values could be zero or positive
+KitchenAbvGr:
+- Indicates the amount of kitchens above grade (ground)
+- Values could be zero or positive
+TotRmsAbvGrd:
+- Indicates the total amount of room above grade (ground)
+- Values are positive only
+Fireplaces:
+- Indicates the number of fireplaces
+- Values could be zero or positive
+GarageYrBlt:
+- Indicates where the garage is located (inside the house, detached from the house)
+- Values are positive only
+GarageCars:
+- Indicates how many cars can fit in the garage
+- Values could be zero or positive
+GarageArea:
+- Indicates the size of the garage
+- Values are in square feet
+- Values could be zero or positive
+WoodDeckSF:
+- Indicates the area of the wood deck
+- Values are in square feet
+- Values could be zero or positive
+OpenPorchSF:
+- Indicates the area of the open porch
+- Values are in square feet
+- Values could be zero or positive
+EnclosedPorch:
+- Indicates the area/size of the enclosed porch
+- Values are in square feet
+- Values could be zero or positive
+X3SsnPorch:
+- Indicates the area/size of the three season porch
+- Values are in square feet
+- Values could be zero or positive
+ScreenPorch:
+- Indicates the size of the screened porch area
+- Values are in square feet
+- Values could be zero or positive
+PoolArea:
+- Indicates the size/area of the house pool, if a pool
+- Values are in square feet
+- Values could be zero or positive
+MiscVal:
+- Indicates the value of all items that were not mentioned (miscellaneous items value)
+- Values could be zero or positive
+MoSold:
+- Indicates the month the house was sold
+- Values should be on a range of 1 to 31
+- Positive values only
+YrSold:
+- Indicates the year the house was sold
+- Values should be on a range up to the year the data was collected, say 2020
+- Positive values only
+SalePrice:
+- Indicates the price the house was sold at
+- Values are in dollars and cannot be negative
