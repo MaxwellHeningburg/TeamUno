@@ -1,0 +1,32 @@
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+library(rpart.plot)
+install.packages('caret')
+library(caret)
+
+Ames <- read.table("https://msudataanalytics.github.io/SSC442/Labs/data/ames.csv",
+                   header = TRUE,
+                   sep = ",")
+
+simple_class = function(x, boundary, above = 1, below = 0) {
+  ifelse(x > boundary, above, below)
+}
+
+default_trn_pred = simple_class(x = Ames$Fireplaces,
+                                boundary = 0, above = "Yes", below = "No")
+
+model <- rpart(Fireplaces ~ default_trn_pred,
+               method = "class", data = Ames)
+rpart.plot(model)
+
+printcp(model)
+plotcp(model)  
+summary(model)
+
+plot(model, uniform=TRUE,
+     main="Fireplaces Tree")
+text(model, use.n=TRUE, all=TRUE, cex=.8)
+```
+
